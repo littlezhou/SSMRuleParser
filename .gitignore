@@ -1,0 +1,7 @@
+*.class
+.idea/
+*.tokens
+src/main/java/SSMRuleBaseListener.java
+src/main/java/SSMRuleLexer.java
+src/main/java/SSMRuleListener.java
+src/main/java/SSMRuleParser.java
