@@ -1,0 +1,11 @@
+#file : on FileOpen | age > 10 | delete
+#file : at now | age > 10 | delete
+#file.length > cache.capacity : every 7d | age > 10d and (some == "somestring" or min >= 10) and times > 30d or not true and path matches "/x/file*.dat" and file.length > 10 or file.xattrib() > 20 * 100 | delete; cache -pool "apool" ; move ONE_SSD; print "Hello world! 汉语"
+#file : at now | true | delete; cache; doing
+#file : at "2013-07-09 19:21:34" | c > 10 * 20 | delete "2013-07-09 19:21:34"
+#file : every 7d from now to "2013-07-09 19:21:34" | c > 10 * 20 | delete
+
+#file : every 7d from now  | x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
+
+
+file : x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete

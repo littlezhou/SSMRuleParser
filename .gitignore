@@ -5,3 +5,6 @@ src/main/java/SSMRuleBaseListener.java
 src/main/java/SSMRuleLexer.java
 src/main/java/SSMRuleListener.java
 src/main/java/SSMRuleParser.java
+src/main/java/SSMRuleBaseVisitor.java
+src/main/java/SSMRuleVisitor.java
+
