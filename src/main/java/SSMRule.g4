@@ -24,8 +24,8 @@ ssmrule
 
 // TODO: Fix this item
 object
-    : OBJECTTYPE
-    | OBJECTTYPE WITH boolvalue
+    : OBJECTTYPE                        #objOnlyType
+    | OBJECTTYPE WITH boolvalue         #objWithType
     ;
 
 trigger
@@ -47,15 +47,16 @@ boolvalue
     | NOT boolvalue
     | boolvalue AND boolvalue
     | boolvalue OR boolvalue
+    | id
     | TRUE
     | FALSE
     ;
 
 compareexpr
-    : ID oPCMP ID
-    | (ID | INT) oPCMP (ID | INT)
-    | (ID | STRING) ('==' | '!=') (ID | STRING)
-    | (ID | STRING) MATCHES (ID | STRING)
+    : id oPCMP id
+    | (id | INT) oPCMP (id | INT)
+    | (id | STRING) ('==' | '!=') (id | STRING)
+    | (id | STRING) MATCHES (id | STRING)
     | timeintvalexpr oPCMP timeintvalexpr
     | timepointexpr oPCMP timepointexpr
     ;
@@ -93,7 +94,8 @@ commonexpr
 
 id
     : ID
-    |
+    | ID '(' commonexpr (',' commonexpr)* ')'
+    ;
 
 
 oPCMP
@@ -174,7 +176,6 @@ TIMEPOINTCONST
 ID
     : PARTID
     | PARTID '.' PARTID
-    | PARTID '.' PARTID '(' ')'
     ;
 
 fragment PARTID : [a-zA-Z_] [a-zA-Z0-9_]* ;

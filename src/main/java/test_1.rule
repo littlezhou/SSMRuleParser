@@ -9,4 +9,4 @@
 
 #file : a | k x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
 
-file with path matches "/a/b*.dat"  : on FileCreate | x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
+file with path matches "/a/b*.dat"  : on FileCreate from "2013-07-09 19:21:34" to now + 7d | isincache and accessCount(10m) > 10 and x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete

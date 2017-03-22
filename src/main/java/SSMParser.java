@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -51,6 +52,10 @@ public class SSMParser {
     ParseTree tree = parser.ssmrule();
     System.out.println("Parser tree: " + tree.toStringTree(parser));
     System.out.println("Total number of errors: " + parseErrors.size());
+
+    ParseTreeWalker walker = new ParseTreeWalker();
+    SSMRuleTranslator tran = new SSMRuleTranslator(walker);
+    walker.walk(tran, tree);
   }
 
   public static void main(String[] args) throws Exception {
