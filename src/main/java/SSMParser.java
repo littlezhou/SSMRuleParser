@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import java.util.List;
  * Created by root on 3/21/17.
  */
 public class SSMParser {
-  public static class SSMRuleErrorListener extends BaseErrorListener {
+  List<RecognitionException> parseErrors = new ArrayList<RecognitionException>();
+
+  public class SSMRuleErrorListener extends BaseErrorListener {
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer,
                             Object offendingSymbol,
@@ -47,6 +50,7 @@ public class SSMParser {
     parser.addErrorListener(new SSMRuleErrorListener());
     ParseTree tree = parser.ssmrule();
     System.out.println("Parser tree: " + tree.toStringTree(parser));
+    System.out.println("Total number of errors: " + parseErrors.size());
   }
 
   public static void main(String[] args) throws Exception {

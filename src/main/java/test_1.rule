@@ -7,5 +7,6 @@
 
 #file : every 7d from now  | x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
 
+#file : a | k x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
 
-file : x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
+file with path matches "/a/b*.dat"  : on FileCreate | x == y and x matches "hello" and "/file/*.db" matches file.path and true or c > 10 and 100 > d or 10d > 20s | delete
