@@ -16,10 +16,4 @@ public class SSMRuleTranslator extends SSMRuleBaseListener {
   public void enterSsmrule(SSMRuleParser.SsmruleContext ctx) {
     System.out.println("XXXXXXXXXXXXXXX");
   }
-
-  @Override
-  public void enterObject(SSMRuleParser.ObjectContext ctx) {
-    TerminalNode tm = ctx.OBJECTTYPE(); ctx.
-  }
-
 }
